@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://soaskkk1ibe1" path="res://Player1.gd" id="1_epypp"]
 [ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://Player2.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://d4gcx6eixxv88" path="res://area_2d.gd" id="3_0hol4"]
-[ext_resource type="Script" uid="uid://dqskw3pdef00u" path="res://area_2d_2.gd" id="4_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bgejh0qatknsi" path="res://assets/Untitled design (2).png" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://bexl8agfe5uka" path="res://bone_2d.gd" id="6_kdubu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0e48y"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -13,17 +13,13 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y32ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(185.05551, 20)
+size = Vector2(120, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0hol4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(95.537094, 25.016075)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 
 [node name="Node2D" type="Node2D" unique_id=1957688855]
-position = Vector2(-186, -116)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=251732118]
 position = Vector2(-137, -78)
@@ -32,7 +28,7 @@ zoom = Vector2(3, 3)
 script = ExtResource("1_0hol4")
 
 [node name="Godot_Player" type="CharacterBody2D" parent="." unique_id=1434380701]
-position = Vector2(2, -37)
+position = Vector2(28.4, -24.97)
 script = ExtResource("1_epypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Godot_Player" unique_id=1712299956]
@@ -48,7 +44,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1276626557]
-position = Vector2(27, 34)
+position = Vector2(44, 34)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=229845184]
@@ -73,15 +69,14 @@ scale = Vector2(14, 14)
 mesh = SubResource("BoxMesh_0hol4")
 texture = ExtResource("2_0e48y")
 
-[node name="Area2D2" type="Area2D" parent="RigidBody2D" unique_id=345586673]
-script = ExtResource("4_q6r6c")
+[node name="Area2D" type="Area2D" parent="TestBlock" unique_id=345586673]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D2" unique_id=1519435277]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock/Area2D" unique_id=1519435277]
 position = Vector2(0, -7.6293945e-06)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="Godot_Player2" type="CharacterBody2D" parent="." unique_id=397598108]
-position = Vector2(4, 88)
+position = Vector2(91.04, 0)
 script = ExtResource("1_wtcfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Godot_Player2" unique_id=419218294]
@@ -93,7 +88,31 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Godot_Player2" unique_id=637293691]
 shape = SubResource("CapsuleShape2D_y32ns")
 
-[connection signal="body_entered" from="RigidBody2D/Area2D2" to="Godot_Player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="RigidBody2D/Area2D2" to="Godot_Player2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="RigidBody2D/Area2D2" to="Godot_Player" method="_on_area_2d_body_exited"]
-[connection signal="body_exited" from="RigidBody2D/Area2D2" to="Godot_Player2" method="_on_area_2d_body_exited"]
+[node name="Tenticle1" type="Node2D" parent="." unique_id=88983096]
+position = Vector2(60, -32.999996)
+rotation = 1.5707964
+scale = Vector2(0.01, 0.01)
+
+[node name="Polygon2D" type="Polygon2D" parent="Tenticle1" unique_id=1557519274]
+position = Vector2(-0.00038146973, 1.6674571e-11)
+scale = Vector2(1.0612965, 1)
+texture = ExtResource("5_q6r6c")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(181.27246, 2168.5474, 124.78662, 2830.2383, 512.11816, 3306.333, 1335.1968, 3548.415, 2440.705, 3685.5947, 2811.8975, 3774.3584, 3409.0327, 4202.0366, 4482.263, 4218.1753, 5579.7026, 4097.1343, 6523.822, 3887.33, 7153.236, 3774.3584, 7677.7466, 3314.4023, 7661.608, 1748.9385, 7290.4155, 1732.7996, 5377.9673, 2152.4084, 4078.7935, 2676.9197, 3409.0327, 2693.0586, 3029.7715, 2321.866, 2456.8438, 2233.1025, 1262.5723, 2539.7397, 972.0737, 2539.7397, 1044.6982, 1660.175, 520.1875, 1837.7018)
+uv = PackedVector2Array(181.27246, 2168.5474, 124.78662, 2830.2383, 512.11816, 3306.333, 1335.1968, 3548.415, 2440.705, 3685.5947, 2811.8975, 3774.3584, 3409.0327, 4202.0366, 4482.263, 4218.1753, 5579.7026, 4097.1343, 6523.822, 3887.33, 7153.236, 3774.3584, 7677.7466, 3314.4023, 7661.608, 1748.9385, 7290.4155, 1732.7996, 5377.9673, 2152.4084, 4078.7935, 2676.9197, 3409.0327, 2693.0586, 3029.7715, 2321.866, 2456.8438, 2233.1025, 1262.5723, 2539.7397, 972.0737, 2539.7397, 1044.6982, 1660.175, 520.1875, 1837.7018)
+bones = ["Bone2D", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Tenticle1" unique_id=1733226681]
+position = Vector2(7999.9995, 2699.9998)
+
+[node name="Bone2D" type="Bone2D" parent="Tenticle1/Skeleton2D" unique_id=968271714]
+rotation = 3.1415925
+scale = Vector2(390, 7)
+rest = Transform2D(-390, 5.8888363e-05, -2.7259007e-06, -7, 0, 0)
+script = ExtResource("6_kdubu")
+original_width = 0.2
+
+[connection signal="body_entered" from="TestBlock/Area2D" to="Godot_Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="TestBlock/Area2D" to="Godot_Player2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="TestBlock/Area2D" to="Godot_Player" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="TestBlock/Area2D" to="Godot_Player2" method="_on_area_2d_body_exited"]

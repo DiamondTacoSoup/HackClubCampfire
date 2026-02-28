@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://soaskkk1ibe1" path="res://Player1.gd" id="1_epypp"]
 [ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://Player2.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://d4gcx6eixxv88" path="res://area_2d.gd" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://dqskw3pdef00u" path="res://area_2d_2.gd" id="4_q6r6c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0e48y"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -10,15 +12,20 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y32ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(120, 20)
+size = Vector2(185.05551, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(95.537094, 25.016075)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 
 [node name="Node2D" type="Node2D" unique_id=1957688855]
+position = Vector2(-186, -116)
 
 [node name="Godot_Player" type="CharacterBody2D" parent="." unique_id=1434380701]
+position = Vector2(2, -37)
 script = ExtResource("1_epypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Godot_Player" unique_id=1712299956]
@@ -34,19 +41,93 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1276626557]
-position = Vector2(44, 34)
+position = Vector2(27, 34)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=229845184]
-position = Vector2(44.000004, 34)
-scale = Vector2(120.00001, 20.000002)
+position = Vector2(22.500004, 34)
+scale = Vector2(193, 20.000002)
 mesh = SubResource("BoxMesh_0hol4")
 texture = ExtResource("2_0e48y")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1047443630]
+position = Vector2(222, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=610221474]
+position = Vector2(14.930027, 34)
+scale = Vector2(1.0800006, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2" unique_id=196929317]
+position = Vector2(17.000006, 34)
+scale = Vector2(204, 20.000002)
+mesh = SubResource("BoxMesh_0hol4")
+texture = ExtResource("2_0e48y")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=41368074]
+position = Vector2(297, 52)
+rotation = -1.5484709
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=361748916]
+position = Vector2(16.5, 34)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3" unique_id=523026086]
+position = Vector2(17.000006, 34)
+scale = Vector2(204, 20.000002)
+mesh = SubResource("BoxMesh_0hol4")
+texture = ExtResource("2_0e48y")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1728115755]
+position = Vector2(-111, 50)
+rotation = -1.5484709
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=685004353]
+position = Vector2(16.5, 34)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4" unique_id=1556037297]
+position = Vector2(17.000006, 34)
+scale = Vector2(204, 20.000002)
+mesh = SubResource("BoxMesh_0hol4")
+texture = ExtResource("2_0e48y")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1787012306]
+position = Vector2(-83.00001, 33)
+rotation = -1.5484709
+scale = Vector2(0.40104312, 1)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=709004802]
+position = Vector2(-72.89372, 34.661247)
+scale = Vector2(-0.40714598, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5" unique_id=1323734484]
+position = Vector2(-70.40083, 34.63892)
+scale = Vector2(86.74431, 20.000002)
+mesh = SubResource("BoxMesh_0hol4")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D5" unique_id=44894827 node_paths=PackedStringArray("door_node")]
+script = ExtResource("3_0hol4")
+door_node = NodePath("../../StaticBody2D3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5/Area2D" unique_id=1739171889]
+position = Vector2(-70.776245, 33.574585)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=251732118]
-position = Vector2(-137, -78)
+position = Vector2(-145, -118)
+scale = Vector2(5.889, 8)
 anchor_mode = 0
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2057522978]
 position = Vector2(59.22, 0)
@@ -64,14 +145,15 @@ scale = Vector2(14, 14)
 mesh = SubResource("BoxMesh_0hol4")
 texture = ExtResource("2_0e48y")
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D" unique_id=345586673]
+[node name="Area2D2" type="Area2D" parent="RigidBody2D" unique_id=345586673]
+script = ExtResource("4_q6r6c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D" unique_id=1519435277]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D2" unique_id=1519435277]
 position = Vector2(0, -7.6293945e-06)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="Godot_Player2" type="CharacterBody2D" parent="." unique_id=397598108]
-position = Vector2(91.04, 0)
+position = Vector2(4, 88)
 script = ExtResource("1_wtcfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Godot_Player2" unique_id=419218294]
@@ -83,7 +165,7 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Godot_Player2" unique_id=637293691]
 shape = SubResource("CapsuleShape2D_y32ns")
 
-[connection signal="body_entered" from="RigidBody2D/Area2D" to="Godot_Player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="RigidBody2D/Area2D" to="Godot_Player2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="RigidBody2D/Area2D" to="Godot_Player" method="_on_area_2d_body_exited"]
-[connection signal="body_exited" from="RigidBody2D/Area2D" to="Godot_Player2" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/Area2D2" to="Godot_Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="RigidBody2D/Area2D2" to="Godot_Player2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/Area2D2" to="Godot_Player" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="RigidBody2D/Area2D2" to="Godot_Player2" method="_on_area_2d_body_exited"]

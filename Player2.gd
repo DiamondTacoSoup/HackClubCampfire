@@ -10,6 +10,8 @@ var actionable = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	RigidBody_location.Player2pos = global_position
+	
 	if Input.is_action_just_pressed("r") or $".".global_position.y > 50 :
 		get_tree().reload_current_scene()
 
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		pinJoint.softness = 0
 		add_child(pinJoint)
 		pinJoint.node_a = self.get_path()
-		pinJoint.node_b = get_node("../RigidBody2D").get_path()
+		pinJoint.node_b = get_node("../TestBlock").get_path()
 		
 	if Input.is_action_just_released("ui_left"):
 		if pinJoint != null:

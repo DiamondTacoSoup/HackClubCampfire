@@ -5,11 +5,13 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 var InRig = false
 var pinJoint: PinJoint2D
-var actionable = false
+var actionableTest = false
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	RigidBody_location.Player1pos = global_position
+	
 	if Input.is_action_just_pressed("r") or $".".global_position.y > 50 :
 		get_tree().reload_current_scene()
 
@@ -28,12 +30,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	
-	if Input.is_action_just_pressed("shift") and actionable == true:
+	if Input.is_action_just_pressed("shift") and actionableTest == true:
 		pinJoint = PinJoint2D.new()
 		pinJoint.softness = 0
 		add_child(pinJoint)
 		pinJoint.node_a = self.get_path()
-		pinJoint.node_b = get_node("../RigidBody2D").get_path()
+		pinJoint.node_b = get_node("../TestBlock").get_path()
 		
 	if Input.is_action_just_released("shift"):
 		if pinJoint != null:
@@ -44,11 +46,11 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	actionable = true
+	actionableTest = true
 	pass # Replace with function body.
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	actionable = false
+	actionableTest = false
 	pass # Replace with function body.
 	

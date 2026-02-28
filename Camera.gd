@@ -1,9 +1,5 @@
-extends Node
+extends Camera2D
 
-var RigPos = Vector2(0,0)
-var Player1pos = Vector2(0,0)
-var Bodypos = Vector2(0,0)
-var Player2pos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

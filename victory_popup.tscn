@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://daghp71dduq5q"]
+
+[ext_resource type="Script" uid="uid://cjs5awo6dh7rr" path="res://restart_button.gd" id="1_wal6x"]
+
+[node name="VictoryPopup" type="CanvasLayer" unique_id=1526506562]
+
+[node name="Background" type="ColorRect" parent="." unique_id=82944738]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="VictoryLabel" type="Label" parent="Background" unique_id=6755622]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 62.0
+offset_right = 852.0
+offset_bottom = 332.0
+theme_override_font_sizes/font_size = 64
+text = "Congratulations
+
+you beat the level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Background" unique_id=592013725]
+z_index = 3
+layout_mode = 0
+offset_left = 387.0
+offset_top = 434.0
+offset_right = 758.0
+offset_bottom = 531.0
+theme_override_colors/font_outline_color = Color(0.95022565, 3.2969565e-06, 5.7756904e-07, 1)
+theme_override_colors/icon_normal_color = Color(0.683497, 0, 0.28361213, 1)
+theme_override_font_sizes/font_size = 64
+text = "R to Restart"
+script = ExtResource("1_wal6x")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1826257031]
+z_index = 1
+layout_mode = 0
+offset_left = 373.0
+offset_top = 428.0
+offset_right = 729.0
+offset_bottom = 543.0
+scale = Vector2(1.123204, 1)
+color = Color(0, 0.74411243, 0.7230701, 1)

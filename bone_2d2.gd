@@ -10,7 +10,7 @@ func _process(_delta):
 	global_position = RigidBody_location.Player3pos
 	
 	# 2. Calculate the vector from point A to point B
-	var direction_vec = RigidBody_location.Player3pos - RigidBody_location.Player1pos
+	var direction_vec = RigidBody_location.Player3pos - RigidBody_location.Player2pos
 	
 	# 3. Set the rotation (Godot assumes 0 rad is pointing Right / +X)
 	global_rotation = -direction_vec.angle()
